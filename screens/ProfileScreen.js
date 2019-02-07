@@ -17,10 +17,37 @@ export default class ProfileScreen extends React.Component {
     header: null,
   };
 
+  state = {
+    date: "",
+    inTime: "",
+    outTime: "",
+    totalTime: ""
+  }
+
+  componentDidMount = () => {
+    fetch("",{
+      method: 'GET'
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log(responseJson);
+
+      this.setState({
+        date: response.date,
+        inTime: response.inTime,
+        outTime: response.outTime,
+        totalTime: response.totalTime
+      })
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <ScrollView>
       <View style={{ fontSize: 20 }}>
       
       <Text style={{fontSize: 40}}>
@@ -28,17 +55,22 @@ export default class ProfileScreen extends React.Component {
       </Text>
 
       <Text>
-      Date : 
+      Date : {this.state.date}
       </Text>
 
       <Text>
-      IN Time : 
+      IN Time : {this.state.inTime}
       </Text>
 
       <Text>
-      Out Time : 
+      Out Time : {this.state.outTime}
       </Text>
 
+      </View>
+      <View>
+      <Text>
+      Total time present in office: {this.state.totalTime}
+      </Text>
       </View>
       </ScrollView>
 
@@ -51,88 +83,9 @@ export default class ProfileScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
+    backgroundColor: '#ffffff',
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
+    justifyContent: 'center',
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+
 });
