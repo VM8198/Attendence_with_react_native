@@ -11,7 +11,7 @@ const Routes = () => (
       <Scene key = "root">
          <Scene key = "login" component = {LogIn} title = "LogIn" />
          <Scene key = "signup" component = {SignUp} title = "SignUp" />  
-         <Scene key = "Tab" component = {HomeScreen} title = 'Home' initial = {true} />   
+         <Scene key = "Tab" component = {HomeScreen} initial = {true} />   
       </Scene>
    </Router>
 )

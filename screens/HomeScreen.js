@@ -4,6 +4,12 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from '../navigation/AppNavigator';
 
 export default class HomeScreen extends React.Component {
+
+  static navigationOptions = {
+    header: null
+  };
+
+  
   state = {
     isLoadingComplete: false,
   };

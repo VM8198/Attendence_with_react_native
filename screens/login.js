@@ -34,7 +34,7 @@ class LogIn extends React.Component {
               placeholder="Email"
               keyboardType="email-address"
               underlineColorAndroid='transparent'
-               onChangeText={(text)=>this.setState({email: text})}/>
+              onChangeText={(text)=>this.setState({email: text})}/>
       </View>          
       <View style={styles.inputContainer}>
       <TextInput style={styles.inputs}

@@ -8,7 +8,8 @@ import ApplicationScreen from '../screens/ApplicationScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const ProfileStack = createStackNavigator({
-  Profile: ProfileScreen,
+  Profile: ProfileScreen, 
+
 });
 
 ProfileStack.navigationOptions = {
